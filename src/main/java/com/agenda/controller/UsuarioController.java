@@ -32,31 +32,31 @@ public class UsuarioController {
 	@RequestMapping(value = "/busca-contatos")
 	public String buscaContatos(Model model) {
 		model.addAttribute("contatos", this.service.buscaPessoas());
-		return "lista-contatos";
+		return "/lista-contatos";
 	}
 
 	@PostMapping(value = "/salva-contato")
 	public ModelAndView salvaContato(@ModelAttribute Pessoa pessoa) {
 		this.service.salvarOuAtualizar(pessoa);
-		return new ModelAndView("redirect:busca-contatos");
+		return new ModelAndView("redirect:/busca-contatos");
 	}
 	
 	@RequestMapping(value = "/remove-contato")
 	public ModelAndView removeContato(@RequestParam long id) {
 		this.service.remover(id);
-		return new ModelAndView("redirect:busca-contatos");
+		return new ModelAndView("redirect:/busca-contatos");
 	}
 	
 	@RequestMapping(value = "/editar-contato")
 	public String editarContato(@RequestParam long id, Model model) {
 		model.addAttribute("pessoa", this.service.buscarPorId(id));
-		return "adiciona-contato";
+		return "/adiciona-contato";
 	}
 	
 	@RequestMapping(value = "/buscar-contato-por-nome")
 	public String buscarContatoPorNome(@RequestParam String nome, Model model) {
 		model.addAttribute("contatos", this.service.buscaPessoaPorNome(nome));
-		return "lista-contatos-ajax";
+		return "/lista-contatos-ajax";
 	}
 
 }

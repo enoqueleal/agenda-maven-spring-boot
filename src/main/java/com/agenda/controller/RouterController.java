@@ -8,17 +8,17 @@ public class RouterController {
 
 	@RequestMapping(value = "/")
 	public String index() {
-		return "index";
+		return "/index";
 	}
 	
 	@RequestMapping(value = "/index")
 	public String home() {
-		return "index";
+		return "/index";
 	}
 	
 	@RequestMapping(value = "/cadastra-usuario")
 	public String cadastraUsuarioPage() {
-		return "adiciona-contato";
+		return "/adiciona-contato";
 	}
 
 }
