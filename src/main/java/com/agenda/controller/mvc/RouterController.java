@@ -1,4 +1,4 @@
-package com.agenda.controller;
+package com.agenda.controller.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -22,8 +22,11 @@ import com.agenda.service.UsuarioService;
 @RequestMapping(value = "/api")
 public class UsuarioRestController {
 
-	@Autowired
 	private UsuarioService service;
+
+	public UsuarioRestController(UsuarioService service) {
+		this.service = service;
+	}
 
 	@RequestMapping(value = "/pessoas")
 	public @ResponseBody Iterable<Pessoa> buscaPessoas() {
@@ -58,6 +61,7 @@ public class UsuarioRestController {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(p.getId()).toUri();
 
 		return ResponseEntity.created(location).build();
+
 	}
 
 }

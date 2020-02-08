@@ -9,8 +9,11 @@ import com.agenda.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
 
-	@Autowired
 	private UsuarioRepository repository;
+
+	public UsuarioService(UsuarioRepository repository) {
+		this.repository = repository;
+	}
 
 	public Pessoa salvarOuAtualizar(Pessoa pessoa) {
 		return this.repository.save(pessoa);

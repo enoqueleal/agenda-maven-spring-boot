@@ -1,4 +1,4 @@
-package com.agenda.controller;
+package com.agenda.controller.mvc;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,8 +21,11 @@ import com.agenda.service.UsuarioService;
 @Controller
 public class UsuarioController {
 
-	@Autowired
 	private UsuarioService service;
+
+	public UsuarioController(UsuarioService service) {
+		this.service = service;
+	}
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
