@@ -3,7 +3,7 @@ pipeline {
     agent any
     
      tools {
-        maven "Maven"
+        maven "maven"
     }
     
     stages {
@@ -26,9 +26,8 @@ pipeline {
         }
         
         stage('Statistical analysis') { 
-	        withSonarQubeEnv('Sonar') { 
-		          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
-		          '-f all/pom.xml ' +
+	        withSonarQubeEnv('sonar-scanner') { 
+		          sh 'mvn sonar:sonar ' + 
 		          '-Dsonar.projectKey=SPRING-BOOT ' +
 		          '-Dsonar.host.url=http://localhost:9000 '
 		          '-Dsonar.login=82d81083adba6c62f5ed069356b1892492523a7d ' +
