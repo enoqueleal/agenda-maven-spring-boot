@@ -26,7 +26,7 @@ pipeline {
 		}
 		
 		stage('Statistical analysis') { 
-			withSonarQubeEnv('sonar-scanner') { 
+			withSonarQubeEnv('sonar') { 
 			sh 'mvn sonar:sonar ' + 
 			'-Dsonar.projectKey=SPRING-BOOT ' +
 			'-Dsonar.host.url=http://localhost:9000 '
