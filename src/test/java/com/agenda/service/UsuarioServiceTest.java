@@ -1,15 +1,15 @@
-package com.agenda.service.service;
+package com.agenda.service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
 import java.util.*;
 import org.junit.*;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
 import com.agenda.model.Pessoa;
 import com.agenda.repository.UsuarioRepository;
-import com.agenda.service.UsuarioService;
 
 public class UsuarioServiceTest {
 	
@@ -31,7 +31,7 @@ public class UsuarioServiceTest {
 		
 		Iterable<Pessoa> reesponseBody = service.buscaPessoaPorNome(anyString());
 		
-		assertNotNull(reesponseBody);
+		assertThat(reesponseBody).isNotNull();
 		
 	}
 	
@@ -44,7 +44,7 @@ public class UsuarioServiceTest {
 		
 		Iterable<Pessoa> reesponseBody = service.buscaPessoas();
 		
-		assertNotNull(reesponseBody);
+		assertThat(reesponseBody).isNotNull();
 		
 	}
 	
@@ -68,7 +68,7 @@ public class UsuarioServiceTest {
 		
 		Pessoa returnedPerson = service.buscarPorId(1L);
 			
-		assertNotNull(returnedPerson);
+		assertThat(returnedPerson).isNotNull();
 		
 	}
 	
@@ -81,8 +81,8 @@ public class UsuarioServiceTest {
 		Mockito.when(repository.save(any())).thenReturn(pessoa);
 		
 		Pessoa returnedPerson = service.salvarOuAtualizar(pessoa);  
-			
-		assertNotNull(returnedPerson);
+		
+		assertThat(returnedPerson).isNotNull();
 		
 	}
 
