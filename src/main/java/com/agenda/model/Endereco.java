@@ -9,7 +9,7 @@ public class Endereco {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String logradouro;
 	private String cep;
 
@@ -29,11 +29,11 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

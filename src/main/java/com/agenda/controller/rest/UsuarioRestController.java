@@ -19,7 +19,7 @@ public class UsuarioRestController {
 		this.service = service;
 	}
 
-	@RequestMapping(value = "/pessoas")
+	@GetMapping(value = "/pessoas")
 	public @ResponseBody Iterable<Pessoa> buscaPessoas() {
 		return this.service.buscaPessoas();
 	}

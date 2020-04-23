@@ -18,7 +18,7 @@ public class Pessoa {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String nome;
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -57,11 +57,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
