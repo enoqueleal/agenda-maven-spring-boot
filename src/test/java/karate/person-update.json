@@ -1,0 +1,15 @@
+{
+	"id": "1",
+	"nome": "Iron Man",
+	"dataNascimento": "02-04-1990",
+	"contato": {
+		"id": "1",
+		"email": "iron-man@gmail.com",
+		"telefone": "1198455-0002"
+	},
+	"endereco": {
+		"id": "1",
+		"logradouro": "Av. Interlagos, 101",
+		"cep": "04865-000"
+	}
+}

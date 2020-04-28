@@ -1,0 +1,12 @@
+{
+	"nome": "João Pedro",
+	"dataNascimento": "02-04-1990",
+	"contato": {
+		"email": "joao.pedro@gmail.com",
+		"telefone": "1198455-0000"
+	},
+	"endereco": {
+		"logradouro": "Av. Interlagos, 100",
+		"cep": "04865-000"
+	}
+}
