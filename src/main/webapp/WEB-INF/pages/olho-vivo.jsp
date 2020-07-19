@@ -8,6 +8,8 @@
 	<title>SPTrans</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="icon" href="http://www.sptrans.com.br/images/favicon.png" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -42,20 +44,24 @@
 		
 		<c:if test="${not empty linhas}">
 			<br>
-			<table class="table">
+			<table class="table-responsive">
 				<tr>
-					<th>LINHA</th>
+					<th class="text-center" >LINHA</th>
 					<th>DE</th>
 					<th>PARA</th>
-					<th>CIRCULAR</th>
+					<th class="text-center">CIRCULAR</th>
 				</tr>
 
 				<c:forEach var="linha" items="${linhas}">
 					<tr>
-						<td>${linha.letreiroParteUm}/${linha.letreiroParteDois}</td>
+						<td class="text-center">
+							<a class="btn btn-link" role="button" href="#" data-toggle="modal" data-target="#modal">
+								${linha.letreiroParteUm}/${linha.letreiroParteDois}
+							</a>
+						</td>
 						<td>${linha.descritivoIda}</td>
 						<td>${linha.descritivoVolta}</td>
-						<td>${linha.linhaCircular ? "SIM" : "NÃO"}</td>
+						<td class="text-center">${linha.linhaCircular ? "SIM" : "NÃO"}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -66,8 +72,32 @@
 				<span>Nenhum resultado encontrado!</span>
 			</div>
 		</c:if>
+		
+		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Detalhes da linha:</h4>
+					</div>
+					<div class="modal-body">
+					
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">LINHA:</label>
+							<div class="col-sm-10">
+								<p class="form-control-static">Sample...</p>
+							</div>
+						</div>
+					</form>
+					
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
 </body>
