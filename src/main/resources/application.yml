@@ -15,3 +15,7 @@ spring:
         show-sql: true
         hibernate:
             ddl-auto: create-drop
+            
+olhovivo:
+    url: ${OLHO_VIVO_URL}
+    token: ${OLHO_VIVO_TOKEN}

@@ -20,5 +20,10 @@ public class RouterController {
 	public String cadastraUsuarioPage() {
 		return "/adiciona-contato";
 	}
+	
+	@RequestMapping(value = "/olho-vivo")
+	public String olhoVivo() {
+		return "/olho-vivo";
+	}
 
 }
