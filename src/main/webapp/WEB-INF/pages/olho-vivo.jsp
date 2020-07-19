@@ -44,27 +44,29 @@
 		
 		<c:if test="${not empty linhas}">
 			<br>
-			<table class="table-responsive">
-				<tr>
-					<th class="text-center" >LINHA</th>
-					<th>DE</th>
-					<th>PARA</th>
-					<th class="text-center">CIRCULAR</th>
-				</tr>
-
-				<c:forEach var="linha" items="${linhas}">
+			<div class="table-responsive">
+				<table class="table">
 					<tr>
-						<td class="text-center">
-							<a class="btn btn-link" role="button" href="#" data-toggle="modal" data-target="#modal">
-								${linha.letreiroParteUm}/${linha.letreiroParteDois}
-							</a>
-						</td>
-						<td>${linha.descritivoIda}</td>
-						<td>${linha.descritivoVolta}</td>
-						<td class="text-center">${linha.linhaCircular ? "SIM" : "NÃO"}</td>
+						<th class="text-center" >LINHA</th>
+						<th>DE</th>
+						<th>PARA</th>
+						<th class="text-center">CIRCULAR</th>
 					</tr>
-				</c:forEach>
-			</table>
+	
+					<c:forEach var="linha" items="${linhas}">
+						<tr>
+							<td class="text-center">
+								<a class="btn btn-link" role="button" href="#" data-toggle="modal" data-target="#modal">
+									${linha.letreiroParteUm}/${linha.letreiroParteDois}
+								</a>
+							</td>
+							<td>${linha.sentido == 1 ? linha.descritivoIda : linha.descritivoVolta}</td>
+							<td>${linha.sentido == 2 ? linha.descritivoIda : linha.descritivoVolta}</td>
+							<td class="text-center">${linha.linhaCircular ? "SIM" : "NÃO"}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</c:if>
 		<br>
 		<c:if test="${noResultsFount}">
