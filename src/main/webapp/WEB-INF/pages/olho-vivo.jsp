@@ -48,21 +48,19 @@
 				<table class="table">
 					<tr>
 						<th class="text-center" >LINHA</th>
-						<th>DE</th>
-						<th>PARA</th>
-						<th class="text-center">CIRCULAR</th>
+						<th>ORIGEM</th>
+						<th>DESTINO</th>
 					</tr>
 	
 					<c:forEach var="linha" items="${linhas}">
 						<tr>
 							<td class="text-center">
-								<a class="btn btn-link" role="button" href="#" data-toggle="modal" data-target="#modal">
+								<a class="btn btn-link" onclick="modalValues(${linha.codigoIdentificador})" role="button" href="#" data-toggle="modal" data-target="#modal-detalhe">
 									${linha.letreiroParteUm}/${linha.letreiroParteDois}
 								</a>
 							</td>
 							<td>${linha.sentido == 1 ? linha.descritivoIda : linha.descritivoVolta}</td>
 							<td>${linha.sentido == 2 ? linha.descritivoIda : linha.descritivoVolta}</td>
-							<td class="text-center">${linha.linhaCircular ? "SIM" : "NÃO"}</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -75,7 +73,7 @@
 			</div>
 		</c:if>
 		
-		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modal-detalhe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -83,16 +81,7 @@
 						<h4 class="modal-title" id="myModalLabel">Detalhes da linha:</h4>
 					</div>
 					<div class="modal-body">
-					
-					<form class="form-horizontal">
-						<div class="form-group">
-							<label class="col-sm-2 control-label">LINHA:</label>
-							<div class="col-sm-10">
-								<p class="form-control-static">Sample...</p>
-							</div>
-						</div>
-					</form>
-					
+						<div id="ajax-response"></div>
 					</div>
 				</div>
 			</div>
@@ -101,6 +90,24 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	
+	<script>
+	
+		function modalValues(codigoIdentificador){ 
+			
+			$.ajax({
+				url : 'open-modal',
+				data : {
+					identificador : codigoIdentificador
+				},
+				success : function(responseText) {
+					$('#ajax-response').html(responseText);
+				}
+			});
+			
+		}
+	
+	</script>
 
 </body>
 </html>

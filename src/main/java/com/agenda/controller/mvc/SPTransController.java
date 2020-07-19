@@ -13,6 +13,7 @@ import com.agenda.service.SPTransService;
 public class SPTransController {
 	
 	private SPTransService service;
+	private List<Line> lines;
 	
 	public SPTransController(SPTransService service) {
 		this.service = service;
@@ -21,7 +22,7 @@ public class SPTransController {
 	@RequestMapping(value = "/buscar-linha-por-nome")
 	public String buscarContatoPorNome(@RequestParam(required = true) String parameter, Model model) {
 		
-		List<Line> lines = this.service.getLines(parameter);
+		lines = this.service.getLines(parameter);
 		
 		if(lines.isEmpty()) {
 			model.addAttribute("noResultsFount", true);
@@ -30,6 +31,22 @@ public class SPTransController {
 		model.addAttribute("linhas", this.service.getLines(parameter));
 		
 		return "/olho-vivo";
+		
+	}
+	
+	@RequestMapping(value = "/open-modal")
+	public String openModal(@RequestParam Integer identificador, Model model) {
+		
+		for (Line line : lines) {
+			
+			if(line.getCodigoIdentificador().equals(identificador)) {
+				model.addAttribute("linha", line);
+				break;
+			}
+			
+		}
+		
+		return "/olho-vivo-modal";
 		
 	}
 
