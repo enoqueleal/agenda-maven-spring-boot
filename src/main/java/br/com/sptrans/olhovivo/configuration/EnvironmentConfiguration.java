@@ -1,4 +1,4 @@
-package com.agenda.configuration;
+package br.com.sptrans.olhovivo.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

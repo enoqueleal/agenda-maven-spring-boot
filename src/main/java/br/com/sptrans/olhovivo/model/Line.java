@@ -1,4 +1,4 @@
-package com.agenda.model;
+package br.com.sptrans.olhovivo.model;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
 

@@ -1,4 +1,4 @@
-package com.agenda.controller.mvc;
+package br.com.sptrans.olhovivo.controller;
 
 import java.util.List;
 
@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.agenda.model.Line;
-import com.agenda.service.SPTransService;
+import br.com.sptrans.olhovivo.model.Bus;
+import br.com.sptrans.olhovivo.model.Line;
+import br.com.sptrans.olhovivo.model.Location;
+import br.com.sptrans.olhovivo.service.SPTransService;
 
 @Controller
 public class SPTransController {
@@ -45,6 +47,12 @@ public class SPTransController {
 			}
 			
 		}
+		
+		Location location = this.service.getLocation(identificador);
+		
+		Bus bus = location.getOnibus().get(0);
+		
+		model.addAttribute("bus", bus);
 		
 		return "/olho-vivo-modal";
 		

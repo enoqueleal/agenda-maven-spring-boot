@@ -29,5 +29,10 @@
 				<p class="form-control-static">${linha.sentido == 2 ? linha.descritivoIda : linha.descritivoVolta}</p>
 			</div>
 		</div>
+		<div class="text-center">
+			<a href="https://www.google.com/maps/search/${bus.latitude}+${bus.longitude}" target="_blank">
+				<span class="glyphicon glyphicon-globe" aria-hidden="true">&nbsp;</span><span>Abrir no maps</span>
+			</a>
+		</div>
 	</div>
 </div>

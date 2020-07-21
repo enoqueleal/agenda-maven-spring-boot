@@ -1,6 +1,6 @@
-package com.agenda.service;
+package br.com.sptrans.olhovivo.service;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
@@ -8,8 +8,8 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.agenda.configuration.EnvironmentConfiguration;
-import com.agenda.model.Line;
+import br.com.sptrans.olhovivo.configuration.EnvironmentConfiguration;
+import br.com.sptrans.olhovivo.model.*;
 
 @Service
 public class SPTransService {
@@ -29,10 +29,22 @@ public class SPTransService {
 
 		String uri = env.getUrl() + "Linha/Buscar?termosBusca=" + parameter;
 		
-		ResponseEntity<List<Line>> exchange = restTemplate.exchange(uri, HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<Line>>() {});
+		ResponseEntity<List<Line>> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<Line>>() {});
 
-		return exchange.getBody();
+		return responseEntity.getBody();
 
+	}
+	
+	public Location getLocation(Integer parameter){
+		
+		httpEntity = getHttpEntity();
+
+		String uri = env.getUrl() + "Posicao/Linha?codigoLinha=" + parameter;
+		
+		ResponseEntity<Location> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, httpEntity, new ParameterizedTypeReference<Location>() {});
+		
+		return responseEntity.getBody();
+		
 	}
 
 	private HttpEntity<String> getHttpEntity() {
