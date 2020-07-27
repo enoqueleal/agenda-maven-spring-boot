@@ -12,10 +12,6 @@ spring:
         platform: h2
 
     jpa:
-        show-sql: true
+        show-sql: false
         hibernate:
             ddl-auto: create-drop
-            
-olhovivo:
-    url: ${OLHO_VIVO_URL}
-    token: ${OLHO_VIVO_TOKEN}
